@@ -21,18 +21,10 @@ Search Student should ask for roll and ask for the following options
 1. Edit record
 2. Delete record
 3. View marksheet
-4, Quit
+4. Quit
 
 Delete record should delete the records
-Edit record should ask for the following options
-1. Edit Name
-2. Edit roll
-3. Edit marks in Mathematics
-4. Edit marks in Science
-5. Edit marks in English
-6. Edit marks in Nepali
-7. Edit marks in Social
-8. Quit
+Edit record should ask all the data again
 
 View marksheet should display the marksheet of the student with the following format
 Name: <Name>
