@@ -184,43 +184,34 @@ void listStudent()
 }
 void searchStudent()
 {
-    FILE* fp;
-    fp = fopen("student.dat", "r");
-    if (fp == NULL) {
-        printf("Error");
-        exit(1);
-    }
     int choice;
     int roll;
     printf("Enter roll: ");
     scanf("%d", &roll);
     char name[30];
     float math, science, english, nepali, social;
-    while (fscanf(fp, "%s %d %f %f %f %f %f\n", name, &roll, &math, &science, &english, &nepali, &social) != EOF) {
-        printf("1. Edit record:\n");
-        printf("2. Delete record:\n");
-        printf("3. View marksheet:\n");
-        printf("4. Quit:\n");
-        printf("What is your choice?: ");
-        scanf("%d", &choice);
-        switch (choice) {
-        case 1:
-            editRecord(roll);
-            break;
-        case 2:
-            deleteRecord(roll);
-            break;
-        case 3:
-            viewMarksheet(roll);
-            break;
-        case 4:
-            return;
-        default:
-            printf("Invalid choice");
-            break;
-        }
+    printf("1. Edit record:\n");
+    printf("2. Delete record:\n");
+    printf("3. View marksheet:\n");
+    printf("4. Quit:\n");
+    printf("What is your choice?: ");
+    scanf("%d", &choice);
+    switch (choice) {
+    case 1:
+        editRecord(roll);
+        break;
+    case 2:
+        deleteRecord(roll);
+        break;
+    case 3:
+        viewMarksheet(roll);
+        break;
+    case 4:
+        return;
+    default:
+        printf("Invalid choice");
+        break;
     }
-    fclose(fp);
 }
 
 void editRecord(int roll)
@@ -244,10 +235,9 @@ void deleteRecord(int roll)
     int roll1;
     float math, science, english, nepali, social;
     while (fscanf(fp, "%s %d %f %f %f %f %f\n", name, &roll1, &math, &science, &english, &nepali, &social) != EOF) {
-        if(roll1!=roll){
+        if (roll1 != roll) {
             fprintf(fp1, "%s %d %f %f %f %f %f\n", name, roll1, math, science, english, nepali, social);
         }
-
     }
     fclose(fp);
     fclose(fp1);
